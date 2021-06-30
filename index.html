@@ -1,0 +1,326 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, maximum-scale=1">
+      <title>Converter</title>
+      <link rel="icon" href="favicon.png" type="image/png">
+      <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+      <link href="css/style.css" rel="stylesheet" type="text/css">
+      <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+      <link href="css/animate.css" rel="stylesheet" type="text/css">
+      <link href="css/main.css" rel="stylesheet" type="text/css">
+      <link href="css/select.css" rel="stylesheet" type="text/css">
+      <link href="css/charts_nav.css" rel="stylesheet" type="text/css">
+      <link href="css/table.css" rel="stylesheet" type="text/css">
+      <script type="text/javascript" src="js/USDAED.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
+      <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+      <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+      <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+      <script type="text/javascript" src="js/main.js"></script>
+   </head>
+   <body onload="currency_label();currency_converter();live_set_values();live_data(3600000);">
+      
+      <header id="header_wrapper">
+         <div class="container">
+            <div class="header_box">
+               <div class="logo"><a href="#"><img src="img/logo.png" class="main_logo"></a></div>
+               <nav class="navbar navbar-inverse" role="navigation">
+                  <div class="navbar-header">
+                     <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                  </div>
+                  <div id="main-nav" class="collapse navbar-collapse navStyle">
+                     <ul class="nav navbar-nav" id="mainNav">
+                        <li class="active"><a href="#main" class="scroll-link">Home</a></li>
+                        <li><a href="#converter" class="scroll-link">Converter</a></li>
+                        <li><a href="#analytics" class="scroll-link">Analytics</a></li>
+                        <li><a href="#livedata" class="scroll-link">Live Data</a></li>
+                        <li><a href="#about" class="scroll-link">About</a></li>
+                     </ul>
+                  </div>
+               </nav>
+            </div>
+         </div>
+      </header>
+       
+      
+      
+      
+      <section id="main" class="top_cont_outer">
+         <div class="hero_wrapper">
+            <div class="container">
+               <div class="hero_section">
+                  <div class="row">
+                     <div class="col-lg-5 col-sm-7">
+                        <div class="top_left_cont zoomIn wow animated">
+                           <h2 id=title_1><strong>a simple to use</strong></h2>
+                           <h2 id=title_2><strong >currency converter</strong></h2>
+                           <div class="fadeInLeft list" >
+                              <br><br>
+                           </div>
+                           <a href="#converter" class="read_more2" style="text-decoration:none;">Get Started</a> 
+                        </div>
+                     </div>
+                     <div class="col-lg-7 col-sm-5">
+                        <img src="img/currency_logo.png" class="zoomIn wow animated" alt="" />
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+       
+      <section id="converter" class="first">
+         
+         
+         
+         <div class="inner_wrapper anchor">
+            <div class="container">
+               <h2 class="heading_font">Currency Converter</h2>
+               <div class="inner_section">
+                  <div class="row">
+                     <div id="theflex">
+                        <div id="input-pair-1">
+                           <input id="input-1" type="number" value="1" oninput="currency_converter()">
+                           <div class = "select-element element-1">
+                              <p class="select_p_1" ><img src="img/uae.png" class = "select-icons">&nbsp AED</p>
+                              <img src="img/chevron.png" class = "select-chevron-1">
+                           </div>
+                           <ul class = "ul-list-1" onclick="currency_converter()" >
+                              <li class = "options1"><img src="img/uae.png" class = "select-icons">&nbsp AED</li>
+                              <li class = "options1"><img src="img/usa.png" class = "select-icons">&nbsp USD</li>
+                              <li class = "options1"><img src="img/UK.png" class = "select-icons">&nbsp GBP</li>
+                              <li class = "options1"><img src="img/europe.png" class = "select-icons">&nbsp EUR</li>
+                              <li class = "options1"><img src="img/india.png" class = "select-icons">&nbsp INR</li>
+                              <li class = "options1"><img src="img/canada.png" class = "select-icons">&nbsp CAD</li>
+                              <li class = "options1"><img src="img/australia.png" class = "select-icons">&nbsp AUD</li>
+                           </ul>
+                        </div>
+                        <div id="arrows-container" onclick="switch_values()">
+                           <img id="arrow-up" class="arrow" src="img/arrow-up.svg"/>
+                           <img id="arrow-down" class="arrow" src="img/arrow-down.svg"/>
+                        </div>
+                        <!-- <img id="arrows" src="images/arrows.svg"/> -->
+                        <div id="input-pair-2">
+                           <input id="input-2" type="number" disabled>
+                           <div class = "select-element element-2">
+                              <p class = "select_p_2" onchange = "currency_converter()"><img src="img/usa.png" class = "select-icons">&nbsp USD</p>
+                              <img src="img/chevron.png" class = "select-chevron-2">
+                           </div>
+                           <ul class = "ul-list-2" onclick="currency_converter()">
+                              <li class = "options2"><img src="img/uae.png" class = "select-icons">&nbsp AED</li>
+                              <li class = "options2"><img src="img/usa.png" class = "select-icons">&nbsp USD</li>
+                              <li class = "options2"><img src="img/UK.png" class = "select-icons">&nbsp GBP</li>
+                              <li class = "options2"><img src="img/europe.png" class = "select-icons">&nbsp EUR</li>
+                              <li class = "options2"><img src="img/india.png" class = "select-icons">&nbsp INR</li>
+                              <li class = "options2"><img src="img/canada.png" class = "select-icons">&nbsp CAD</li>
+                              <li class = "options2"><img src="img/australia.png" class = "select-icons">&nbsp AUD</li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <br><br><br><br><br><br><br><br><br><br>
+         <div class= "converter_dates">
+            <p id="dates_1"></p>
+            <p id="dates_2"></p>
+            <br>
+         </div>
+         <a class = "api" href="https://www.freeforexapi.com">
+         <img alt="Free Forex API" src="https://www.freeforexapi.com/Images/link.png" height="20">
+         </a>
+         <br><br><br><br><br><br><br>
+      </section>
+       
+      
+      <section  id="analytics" class="second">
+         <div class="container">
+            <h2 class="hist_data">Historical Data</h2>
+            <div class = "data_flex">
+               <nav class="shift">
+                  <p class="data_p">Line</p>
+                  <ul>
+                     <li><a class="line_bt">Line</a></li>
+                     <li><a class="bar_bt">Bar</a></li>
+                  </ul>
+               </nav>
+               <div class="hist_label_flex">
+                  <p>*All prices are shown from Base currency USD</p>
+                  <p>*You can click and drag on the graph to zoom!!!</p>
+                  <p>Or use the sliders</p>
+
+               </div>
+               <div id = "chart">   
+               </div>
+               <p id = "data_label"></p>
+               <div class="data_inputs">
+                  <div class = "data_input1">
+                     <input id="date_input_1" class="data_date1" type="date" value="2018-06-01" onchange="plotChart()">
+                     <div class = "chart-select-element data-element-1">
+                        <p class="data_select_p_1" ><img src="img/usa.png" class = "select-icons">&nbsp USD</p>
+                     </div>
+                  </div>
+                  <div class = "data_input2">
+                     <input id="date_input_2" class="data_date2" type="date" value="2021-06-27" onchange="plotChart()">
+                     <div class = "select-element data-element-2">
+                        <p class="data_select_p_2" ><img src="img/india.png" class = "select-icons">&nbsp INR</p>
+                        <img src="img/chevron.png" class = "data-select-chevron-2">
+                     </div>
+                     <ul class = "data-ul-list-2" >
+                        <li class = "data_options2"><img src="img/uae.png" class = "select-icons">&nbsp AED</li>
+                        <li class = "data_options2"><img src="img/UK.png" class = "select-icons">&nbsp GBP</li>
+                        <li class = "data_options2"><img src="img/europe.png" class = "select-icons">&nbsp EUR</li>
+                        <li class = "data_options2"><img src="img/india.png" class = "select-icons">&nbsp INR</li>
+                        <li class = "data_options2"><img src="img/canada.png" class = "select-icons">&nbsp CAD</li>
+                        <li class = "data_options2"><img src="img/australia.png" class = "select-icons">&nbsp AUD</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <br><br><br><br><br><br><br><br><br>
+         </div>
+      </section>
+      
+      <section class="page_section team third" id="livedata">
+         
+         <div class="container">
+            <h2 class="live_heading">Live data</h2>
+            <br>
+            <div class="hist_label_flex">
+               <p>*All prices are shown from Base currency USD</p>
+   
+            </div>
+            <div class = "live_data_box">
+               <div class="limiter">
+                  <div class="wrap-table100">
+                     <div class="table">
+                        <div class="table_row header">
+                           <div class="cell">Currency</div>
+                           <div class="cell">Rate</div>
+                           <div class="cell">Change</div>
+                           <div class="cell">Refresh Time</div>
+                        </div>
+                        <div class="table_row">
+                           <div class="cell row0_1" data-title="Currency">
+                              USD/AED
+                           </div>
+                           <div class="cell row0_2" data-title="Rate">
+                              0
+                           </div>
+                           <div class="cell row0_3" data-title="Change">
+                           </div>
+                           <div class="cell refresh_rate" data-title="Change">
+                           </div>
+                        </div>
+                        <div class="table_row">
+                           <div class="cell row1_1" data-title="Currency">
+                              USD/GBP
+                           </div>
+                           <div class="cell row1_2" data-title="Rate">
+                              0
+                           </div>
+                           <div class="cell row1_3" data-title="Change">
+                           </div>
+                           <div class="cell refresh_rate" data-title="Change">
+                           </div>
+                        </div>
+                        <div class="table_row">
+                           <div class="cell row2_1" data-title="Currency">
+                              USD/EUR
+                           </div>
+                           <div class="cell row2_2" data-title="Age">
+                              0
+                           </div>
+                           <div class="cell row2_3" data-title="Change">
+                           </div>
+                           <div class="cell refresh_rate" data-title="Change">
+                           </div>
+                        </div>
+                        <div class="table_row">
+                           <div class="cell row3_1" data-title="Currency">
+                              USD/INR
+                           </div>
+                           <div class="cell row3_2" data-title="Rate">
+                              0
+                           </div>
+                           <div class="cell row3_3" data-title="Change">
+                           </div>
+                           <div class="cell refresh_rate" data-title="Change">
+                           </div>
+                        </div>
+                        <div class="table_row">
+                           <div class="cell row4_1" data-title="Currency">
+                              USD/CAD
+                           </div>
+                           <div class="cell row4_2" data-title="Rate">
+                              0
+                           </div>
+                           <div class="cell row4_3" data-title="Change">
+                           </div>
+                           <div class="cell refresh_rate" data-title="Change">
+                           </div>
+                        </div>
+                        <div class="table_row">
+                           <div class="cell row5_1" data-title="Currency">
+                              USD/AUD
+                           </div>
+                           <div class="cell row5_2" data-title="Rate">
+                              0
+                           </div>
+                           <div class="cell row5_3" data-title="Change">
+                           </div>
+                           <div class="cell refresh_rate" data-title="Change">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="live_data_box1">
+                  <div>
+                     <p class="live_p2">Refresh Time:</p>
+                     <div class='live_data_box_inner'>
+                        <input id="live-input-1" type="number" value="5">
+                        <div class="live1_flex">
+                           <div class="data1-select-element live1-element">
+                              <p class="live1_select">Hours</p>
+                           </div>
+                           <ul class="live1-ul-list">
+                              
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <div><a class="read_more3" style="text-decoration:none;">Refresh</a> </div>
+               </div>
+            </div>
+         </div>
+         <br><br><br><br><br>
+      </section>
+      <!--Footer-->
+      <footer class="footer_wrapper fourth" id="about">
+         <div class="container">
+            <section class="page_section contact" id="contact">
+               <div class="contact_section">
+                  <h2 class="heading_about">About</h2>
+               </div>
+               <p class = "footer">Made For Curtin University</p>
+               <p class = "footer">Hackathon Competition</p>
+            </section>
+         </div>
+         <div class="container">
+            <div class="footer_bottom"><span>Made By Pranesh Ragu</span> </div>
+         </div>
+      </footer>
+      <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="js/jquery-scrolltofixed.js"></script>
+      <script type="text/javascript" src="js/jquery.nav.js"></script> 
+      <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+      <script type="text/javascript" src="js/jquery.isotope.js"></script>
+      <script type="text/javascript" src="js/custom.js"></script>
+      <script type="text/javascript" src="js/main.js"></script>
+   </body>
+</html>
